@@ -53,9 +53,6 @@ export class CreateEventsComponent implements OnInit {
   }
   saveData(){
     console.log(this.form);
-    if(this.form.valid){
-      this.form.reset()
-    }
   }
   photoSelected(event: HTMLInputEvent): void{
     //para saber si estan subiendo una foto de ser asi continue

@@ -1,7 +1,7 @@
 <div class="main-content">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-12"> <!--CARTA DEL FORMULARIO-->
         <div class="card ">
           <div class="card-header card-header-rose card-header-icon">
             <div class="card-icon" [style]="'--background-color: '+customerDetail.color+';'">
@@ -51,7 +51,7 @@
                     [style]="'background-color: '+customerDetail.color+' !important;'">Excedes el limite de 12
                     caracteres</p>
                 </div>
-                <div class="col-4">
+                <div class="col-4">   <!--DATE-->
                   <mat-form-field appearance="fill">
                     <mat-label>fecha</mat-label>
                     <input matInput [matDatepicker]="picker" placeholder="ingresa una fecha" formControlName="date">
@@ -61,7 +61,7 @@
                   </mat-form-field>
                 </div>
                 <hr>
-                <div class="col-12" align="center">
+                <div class="col-12" align="center"> <!--IMAGE UPLOAD-->
                   <input type="file" class="d-none" (change)="photoSelected($event)" #photoInpu formControlName="image">
                   <img [src]="photoSelection|| 'assets/img/icons-Andres/download-removebg-preview.png'" alt="foto"
                     class="img-fluid" (click)="photoInpu.click()" width="120" height="120">
