@@ -53,6 +53,11 @@ export class CreateEventsComponent implements OnInit {
   }
   saveData(){
     console.log(this.form);
+    this.resetForm()
+  }
+  resetForm(){
+    this.form.reset()
+    
   }
   photoSelected(event: HTMLInputEvent): void{
     //para saber si estan subiendo una foto de ser asi continue
@@ -68,7 +73,7 @@ export class CreateEventsComponent implements OnInit {
   showModal(){
     Swal.fire(
       'Registro Exitoso',
-      'has completado el registro',
+      'para ingresar un nuevo registro limpia el formulario',
       'success'
     )
   }

@@ -67,10 +67,13 @@
                     class="img-fluid" (click)="photoInpu.click()" width="120" height="120">
                   <p>Sube una imagen (esto es opcional)</p>
                 </div>
-                <div class="col-12 card-footer "> <!--BOTON-->
+                <div class="col-12"> <!--BOTON-->
                   <button mat-raised-button type="submit" class="btn btn-fill btn-rose"
                     [style]="'background-color: '+customerDetail.color+' !important;'" [disabled]="form.invalid"
                     (click)="showModal()">Realizar Registro</button>
+                  <button mat-raised-button type="button" class="btn btn-fill btn-rose" [style]="'background-color: '+customerDetail.color+' !important;'" (click)="resetForm()"  style="margin: 25px">
+                    Limpiar Formulario
+                  </button>
                 </div>
               </div>
             </form>

@@ -46,9 +46,9 @@ export class ReportComponent implements OnInit {
   }
   initial(){
     this.form = this.myFormBuilder.group({
-      category: [Menssage.empty, Validators.compose([Validators.nullValidator])],
-      events: [Menssage.empty, Validators.compose([Validators.nullValidator])],
-      date: [Menssage.empty, Validators.compose([Validators.nullValidator])],
+      category: [Menssage.empty, Validators.compose([Validators.required])],
+      events: [Menssage.empty, Validators.compose([Validators.required])],
+      date: [Menssage.empty, Validators.compose([Validators.required])],
     })
     this.loadData()
   } 

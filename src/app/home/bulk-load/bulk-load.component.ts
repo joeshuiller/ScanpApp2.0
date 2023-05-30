@@ -53,13 +53,16 @@ export class BulkLoadComponent implements OnInit {
   }
   initial(){
     this.form = this.myFormBuilder.group({
-      events:[Menssage.empty, Validators.compose([Validators.nullValidator])],
-      images: [Menssage.empty, Validators.compose([Validators.nullValidator])]
+      events:[Menssage.empty, Validators.compose([Validators.required])],
+      images: [Menssage.empty, Validators.compose([Validators.required])]
     })
     this.loadData()
   }
   saveData(){
     console.log(this.form);
+  }
+  resetForm(){
+    this.form.reset()
   }
   getEvents(item: number){
     this.alert.loading();

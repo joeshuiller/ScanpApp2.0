@@ -46,6 +46,10 @@ export class CreateAgentsComponent implements OnInit {
   }
   saveData(){
     console.log(this.form)
+    this.resetForm()
+  }
+  resetForm(){
+    this.form.reset()
   }
   //VENTANA EMERGENTE
   showModal(){

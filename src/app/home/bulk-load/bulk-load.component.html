@@ -5,7 +5,7 @@
         <div class="card ">
           <div class="card-header card-header-rose card-header-icon">
             <div class="card-icon" [style]="'--background-color: '+customerDetail.color+';'">
-              <i class="material-icons">location_on</i>
+              <i class="material-icons">cloud_upload</i>
             </div>
             <h4 class="card-title">Carga Masiva</h4>
           </div>
@@ -29,10 +29,13 @@
                       class="img-fluid" (click)="photoInpu.click()" width="120" height="120">
                     <p>Sube una imagen (esto es opcional)</p>
                 </div>
-                <div class="col-12 card-footer "> <!--BOTON-->
+                <div class="col-12 "> <!--BOTON-->
                   <button mat-raised-button type="submit" class="btn btn-fill btn-rose"
                     [style]="'background-color: '+customerDetail.color+' !important;'" [disabled]="form.invalid"
                     (click)="showModal()">Realizar Registro</button>
+                    <button mat-raised-button type="button" class="btn btn-fill btn-rose" [style]="'background-color: '+customerDetail.color+' !important;'" (click)="resetForm()"  style="margin: 25px">
+                      Limpiar Formulario
+                    </button>
                 </div>
               </div>
             </form>
@@ -52,7 +55,7 @@
               <div class="table-responsive">
                 <!--FILTRO-->
                 <mat-form-field>
-                  <mat-label>Filter</mat-label>
+                  <mat-label>Selecciona el evento</mat-label>
                   <!-- <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input> -->
                   <mat-select [(ngModel)]="selectItems" (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
                     <mat-option *ngFor="let item of eventsItems" [value]="item.companyNameEvent">
