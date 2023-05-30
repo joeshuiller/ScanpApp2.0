@@ -1,1 +1,130 @@
-<p>create-agents works!</p>
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card ">
+          <div class="card-header card-header-rose card-header-icon">
+            <div class="card-icon" [style]="'--background-color: '+customerDetail.color+';'">
+              <i class="material-icons">person_add</i>
+            </div>
+            <h4 class="card-title">Crear Usuario</h4>
+          </div>
+          <div class="card-body">
+            <form class="form" [formGroup]="form" (ngSubmit)="saveData()" >
+              <div class="row">
+                <div class="col-4"> <!--Name-->
+                  <mat-form-field appearance="fill">
+                    <mat-label>Nombres</mat-label> 
+                    <input matInput placeholder="ingresa los nombres" formControlName="names" autocomplete="off" type="text">
+                    <mat-icon matSuffix>person_outline</mat-icon>
+                    <mat-hint>este campo es obligatorio *</mat-hint>
+                  </mat-form-field>
+                </div>
+                <div class="col-4"> <!--Lastname-->
+                  <mat-form-field appearance="fill">
+                    <mat-label>Apellidos</mat-label>
+                    <input matInput placeholder="ingresa los apellidos" formControlName="lastnames" autocomplete="off" type="text">
+                    <mat-icon matSuffix>person_outline</mat-icon>
+                    <mat-hint>este campo es obligatorio *</mat-hint>
+                  </mat-form-field>
+                </div>
+                <div class="col-4"> <!--phone-->
+                  <mat-form-field appearance="fill">
+                    <mat-label>Celular</mat-label>
+                    <input matInput placeholder="ingresa el telefono celular" formControlName="phone" type="text"
+                      autocomplete="off">
+                    <mat-icon matSuffix>phone</mat-icon>
+                    <mat-hint>este campo es obligatorio *</mat-hint>
+                  </mat-form-field>
+                </div>
+                <div class="col-4"> <!--CC-->
+                  <mat-form-field appearance="fill">
+                    <mat-label>Cedula</mat-label>
+                    <input matInput placeholder="ingresa el numero de identificacion" formControlName="cc"
+                      autocomplete="off" type="text">
+                    <mat-icon matSuffix>perm_identity</mat-icon>
+                    <mat-hint>este campo es obligatorio *</mat-hint>
+                  </mat-form-field>
+                </div>
+                <div class="col-4"> <!--Password-->
+                  <mat-form-field appearance="fill">
+                    <mat-label>Contraseña</mat-label>
+                    <input matInput placeholder="crea una contraseña segura" formControlName="password" autocomplete="off" type="password">
+                    <mat-icon matSuffix>no_encryption</mat-icon>
+                    <mat-hint>este campo es obligatorio *</mat-hint>
+                  </mat-form-field>
+                </div>
+                <div class="col-4"> <!--email-->
+                  <mat-form-field appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="crea una contraseña segura" formControlName="email" autocomplete="off" type="text">
+                    <mat-icon matSuffix>alternate_email</mat-icon>
+                    <mat-hint>este campo es obligatorio *</mat-hint>
+                  </mat-form-field>
+                </div>
+                <div class="col-12 card-footer "> <!--BOTON-->
+                  <button mat-raised-button type="submit" class="btn btn-fill btn-rose"
+                    [style]="'background-color: '+customerDetail.color+' !important;'" [disabled]="form.invalid"
+                    (click)="showModal()">Crear Usuario</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- TABLA -->
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-rose card-header-icon">
+            <div class="card-icon" [style]="'background-color: '+customerDetail.color+' !important;'">
+              <i class="material-icons">storage</i>
+            </div>
+            <h4 class="card-title">Tabla de Registro</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <mat-form-field>
+                <mat-label>Buscar...</mat-label>
+                <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+              </mat-form-field>
+              <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                <!--NAME COLUM-->
+                <ng-container matColumnDef="names">
+                  <th mat-header-cell *matHeaderCellDef> Nombres</th>
+                  <td mat-cell *matCellDef="let element"> {{element.names}} </td>
+                </ng-container>
+                <!--Lastname COLUM-->
+                <ng-container matColumnDef="lastnames">
+                  <th mat-header-cell *matHeaderCellDef> Apellidos</th>
+                  <td mat-cell *matCellDef="let element"> {{element.lastnames}} </td>
+                </ng-container>
+                <!--CC COLUM-->
+                <ng-container matColumnDef="cc">
+                  <th mat-header-cell *matHeaderCellDef> Cedula</th>
+                  <td mat-cell *matCellDef="let element"> {{element.cc}} </td>
+                </ng-container>
+                <!--PHONE COLUM-->
+                <ng-container matColumnDef="phone">
+                  <th mat-header-cell *matHeaderCellDef> Celular</th>
+                  <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+                </ng-container>
+                <!--EMAIL COLUM-->
+                <ng-container matColumnDef="email">
+                  <th mat-header-cell *matHeaderCellDef> Email</th>
+                  <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                <!-- Row shown when there is no matching data. -->
+                <tr class="mat-row" *matNoDataRow>
+                  <td class="mat-cell" colspan="4">No hemos encontrado resultados sobre "{{input.value}}"</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
